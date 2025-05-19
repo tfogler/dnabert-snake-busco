@@ -1,8 +1,8 @@
 
 rule run_busco_from_link:
     output:
-        f"{config['base']}.busco_summary_{config['busco_db']}.txt",
-        f"{config['base']}.busco_table_{config['busco_db']}.tsv"
+        f"{config['dir']}/{config['base']}.busco_summary_{config['busco_db']}.txt",
+        f"{config['dir']}/{config['base']}.busco_table_{config['busco_db']}.tsv"
     params:
         link = config['link'],
         busco_db = config['busco_db'],
@@ -21,3 +21,4 @@ rule run_busco_from_link:
         mv {params.base}/run_{params.busco_db}/short_summary.txt {output[0]}
         mv {params.base}/run_{params.busco_db}/full_table.tsv {output[1]}
         """
+
